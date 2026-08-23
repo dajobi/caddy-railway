@@ -2,6 +2,9 @@
 # Remember, Railway terminates TLS before it gets to Caddy.
 
 :{$PORT:8080} {
+	handle /health {
+		respond "ok" 200
+	}
 	handle /webhook/* {
 		respond "Service temporarily unavailable" 503
 	}
